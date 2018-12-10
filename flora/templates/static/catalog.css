@@ -1,0 +1,138 @@
+.slides-container {
+	width: 100%;
+	max-width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.slide {
+	float: left;	
+	width: 19.5%;
+	max-width: 250px;
+	margin-right: 4%;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.38);
+	margin-bottom: 100px;
+}
+
+.slide:first-child {
+	margin-left: 4%;
+}
+
+.slide:nth-child(5n) {
+	margin-left: 4%;
+}
+
+.image-part {
+	width: 100%;
+	height: 250px;
+}
+
+.inscriptions-part {
+	height: 90px;
+	max-height: 90px;
+	width: 100%;
+	padding: 15px;
+}
+
+.goods-name{
+	font-size: 1.9vw auto;
+	white-space: nowrap;
+	font-weight: normal;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	text-align: center;
+}
+
+.goods-price {
+	font-size: 1.4vw;
+	margin-left: 55px;
+}
+
+.to-cart {
+	font-size: 1.4vw;
+	text-decoration: underline;
+	text-align: middle;
+	margin-left: 15px;
+}
+.border-block {
+	display: inline-block;
+	border-right: 1px solid rgb(162, 162, 162);
+	width: 122px;
+	margin-bottom: 10px;
+}
+
+.to-cart:hover {
+	text-decoration: none;
+}
+
+.empty {
+	height: 50px;
+}
+
+.clear-fix::after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0px;
+    visibility: hidden;
+}
+
+.reminder {
+	margin-top: 80px;
+	height: 150px;
+	width: 100%;
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 2px solid gray;
+	border-radius: 20px;
+	display: flex;
+}
+
+.reminder p {
+	font-size: 1.65vw;
+	color: black;
+	text-align: center;
+	margin: auto;
+}
+
+.title-container {
+	max-width: 1280px;
+	width: 100%;
+	overflow: hidden; 
+}
+
+.content-block h1{
+	font-size: 2.8vw;
+	font-weight: normal;
+	text-align: center;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.inscription-part button {
+	padding: 0;
+	border: none;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.inscription-part form {
+	display: inline;
+}
+
+.inscription-part button {
+	font-size: 1.25em;
+	padding-left: 10px;
+	text-decoration: underline;
+}
+
+.inscription-part button:hover {
+	text-decoration: none;
+}
+
+.inscription-part button:active {
+	color: white;
+}

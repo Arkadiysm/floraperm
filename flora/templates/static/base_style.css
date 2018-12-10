@@ -1,0 +1,302 @@
+body,
+html {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+
+p{
+	margin: 0px;
+	padding: 0px;
+}
+
+div {
+	box-sizing: border-box;
+	/*border: 1px dashed black;*/
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.secondary-text {
+	font-size: 1.4vw; 
+}
+
+.icons {
+	display: inline-block;
+	position: relative;
+}
+
+.hat {
+	width: 100%;
+	height: 45px;
+	background-image: url(pictures/hat-background.jpg);
+	
+}
+
+.hat-text {
+	color: white;
+}
+
+.hat-text:first-child{
+	margin-left: 220px;
+	margin-right: 45px;
+}
+
+.hat .icons {
+	top: 8px;
+	margin-right: 15px;
+}
+
+.menu {
+	position: sticky;
+	top: 0;
+	width: 100%;
+	max-width: 1280px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 90px;
+	color: black;
+	font-size: 2.3vw;
+	vertical-align: bottom;
+	background-color: rgba(255, 255, 255, 0.9);
+	z-index: 10000;
+}
+
+.left-menu {
+	float: left;
+	height: inherit;
+	width: 44%;
+}
+
+.center-menu {
+	float: left;
+	height: inherit;
+	width: 12%;
+}
+
+.right-menu {
+	float: right;
+	height: inherit;
+	width: 44%;
+}
+
+.menu-items {
+	display: inline-block;
+	margin-top: 25px;
+	margin-left: 80px;
+	padding-bottom: 15px;
+}
+
+.main-logo {
+	display: inline-block;
+}
+
+.basket {
+	vertical-align: bottom;
+}
+
+.left-menu .menu-items:first-child {
+	margin-left: 10%;
+}
+
+.right-menu .menu-items:first-child {
+	margin-left: 180px;
+}
+
+.right-menu .order {
+	display: inline-block;
+	margin-left: 80px;
+	font-size: 1.7vw;
+}
+
+.main-logo {
+	display: inline-block;
+	height: inherit;
+}
+
+.menu-items:hover {
+	border-bottom: 3px solid black;
+}
+
+.catalog-list {
+	position: absolute;
+	left: -100px;
+	top: 45px;
+	z-index: 1000;
+	background-color: white;
+	
+	-webkit-transform: scaleY(0);
+	-ms-transform: scaleY(0);
+	transform: scaleY(0);
+	-webkit-transform-origin: 0 0;
+	-ms-transform-origin: 0 0;
+	transform-origin: 0 0;
+	
+	-webkit-transition: 0.5s ease-in-out;
+	-moz-transition: 0.5s ease-in-out;
+	-o-transition: 0.5s ease-in-out;
+	transition: 0.5s ease-in-out;
+	
+	list-style-type: none;
+	
+	border: 1px solid rgba(198, 198, 198, 0.5);
+	
+	column-count: 2;
+	
+	padding-bottom: 20px;
+	padding-right: 20px;
+	padding-top: 15px;
+	white-space: nowrap;
+}
+
+.catalog-items {
+	font-size: 1.6vw;
+	line-height: 25px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+#catalog:hover .catalog-list {
+	-webkit-transform: scaleY(1);
+	-ms-transform: scaleY(1);
+	transform: scaleY(1);
+}
+
+#catalog {
+	position: relative;
+}
+
+.catalog-items a:hover {
+	color: rgb(76, 177, 190);
+}
+
+.footer {
+	margin: 0;
+	padding: 0;
+	height: 74px;
+	width: 100%;
+	background-image: url(pictures/footer.jpg);
+	margin-top: 200px;
+}
+
+.footer-container {
+	margin: 0;
+	padding: 0;
+	width: 1280px;
+	height: 74px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px;
+}
+
+.footer-left {
+	float: left;
+	margin: 0px;
+	height: 74px;
+	width: 45%;
+}
+
+.footer-center {
+	float: left;
+	margin: 0px;
+	width: 10%;
+	height: 74px;
+}
+
+.footer-right {
+	float: left;
+	margin: 0px;
+	width: 45%;
+	height: 74px;
+}
+
+.footer-container p{
+	font-size: 1.4vw;
+	color: white;
+}
+
+.contacts-text {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	margin-left: 40px;
+	padding-top: 15px;
+}
+
+.label-text {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 0;
+	margin: 0;
+	padding-top: 5px;
+	text-align: center;
+}
+
+.flora-label {
+	font-size: 1.9vw;
+	font-weight: bold;
+}
+
+.footer {
+	margin-top: 400px;
+}
+
+.order {
+	position: relative;
+}
+
+.order:hover {
+	color: #006680;
+	cursor: pointer;
+}
+
+.ruble {
+	color: black !important;
+}
+
+.cart {
+	display: none;
+	background-color: white;
+	font-size: 1.4vw;
+	color: black;
+	position: absolute;
+	top: 40px;
+	left: -60px;
+	text-align: left;
+	border: 1px solid gray;
+	border-radius: 5px;
+	padding: 15px;
+	z-index: 1000;
+}
+
+.cart form {
+	display: inline;
+}
+
+.cart td{
+	border-bottom: 1px solid gray;
+}
+
+.cart td:nth-child(2n) {
+	border-left: 1px solid gray;
+}
+
+.order:hover .cart {
+	display: block;
+}
+
+.order p {
+	display: inline;
+}
+
+.cart table:nth-child(2) tr{
+	display: block;
+	overflow: auto;
+}
+

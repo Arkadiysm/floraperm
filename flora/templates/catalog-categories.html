@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load flora_extras %}
+
+<link rel="stylesheet" href="{% static '/catalog.css' %}" type="text/css">
+<div class="content-block">
+	
+	<div class="reminder">
+		<p>
+			Букеты, представленные на нашем сайте обладают своей авторской уникальностью. <br>
+			Поэтому итоговый вид букета может отличаться от исходного на фотографии, <br>
+			но будьте уверены наши флористы всегда  вас приятно удивят. <br>
+		</p>
+	</div>
+	
+	<div class="title-container"><h1>{{ header }}</h1></div>
+
+	<div class="slides-container">
+		{% for item in Goods %}
+		<div class="slide">
+			<div class="image-part">
+				<img src="{% static item.goods_photo|str %}">
+			</div>
+			<div class="inscription-part">
+				<h3 class="goods-name"> {{ item.goods_name }} </h3>
+				<div class="border-block"><span class="goods-price"> {{ item.price }} &#8381;</span></div>
+				<form method="POST" id="post-form">
+				{% csrf_token %}
+				<button class="btn-cart" value="{{ item.goods_id }}" id="to-cart-button">В корзину</button>
+				</form>
+			</div>
+		</div>
+		{% endfor %}
+		<div class="clear-fix"></div>
+	</div>
+</div>
+
+{% endblock %}

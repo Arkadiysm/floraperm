@@ -1,0 +1,103 @@
+<!doctype html>
+{% load static %}
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&amp;subset=cyrillic" rel="stylesheet"> 
+		<link rel="stylesheet" type="text/css" href="{% static '\base_style.css' %}">
+	</head>
+	<body>
+	<div class="wrapper">
+		<div class="hat">
+			<span class="secondary-text hat-text">Доставка цветов</span>
+			<img class="icons" src="{% static 'icons/icons8-сенсорный-смартфон-26(1).png' %}"></img>
+			<span class="secondary-text hat-text">8 (342) 236-09-60</span>
+		</div>
+		<div class="menu">
+			<div class="left-menu">
+				<div class="menu-items"><a href="/">Главная</a></div>
+				<div class="menu-items" id="catalog">
+					<a href="{% url 'catalog' %}">Каталог</a> <img src="{% static 'icons/arrow_down.png' %}" class="icons">
+					<ul class="catalog-list">
+						<li class="catalog-items"><a href="{% url 'catalog' %}">Все</a></li>
+						{% for category in categories %}
+							<li class="catalog-items"><a href="{% url 'catalog-categories' category.0 %}"> {{ category.1 }} </a></li>
+						{% endfor %} 	
+					</ul>
+				</div>
+				<div class="menu-items"><a href="">О нас</a></div>
+			</div>
+			<div class="center-menu">
+				<img src="{% static 'pictures/main-logo-1.svg' %}" class="main-logo"></img>
+			</div>
+			<div class="right-menu">	
+				<div class="menu-items"><a href="">Контакты</a></div>
+				<div class="order">
+					<object type="image/svg+xml" data="{% static 'icons/shopping-cart.svg' %}" class="cart-ico"></object>
+					{% if cart|length > 0 %}
+					<p><span id="cart_price">{{ cart.get_total_price }}</span> (<span id="cart_len">{{ cart|length }}</span>) <span class="ruble">&#8381;</span></p>
+					{% else %}
+					<p><span id="cart_price">0</span> (<span id="cart_len">0</span>) <span class="ruble">&#8381;</span></p>
+					{% endif %}
+					<div class="cart">
+						<table id="cart-table">
+						{% for item in cart %}
+						<tr>
+							<td>{{ item.product }}</td>
+							<td>{{ item.total_price }}</td>
+							<form method="POST" id="remove-form">
+							{% csrf_token %}
+							<td style="border-left: 1px solid gray;"><button class="remove-button" value="{{ item.product_id }}">X</button></td>
+							</form>
+						</tr>
+						{% endfor %}
+						</table>
+						<table>
+							<tr>
+								<td>Всего: </td><td id="cart-total-price">{{ cart.get_total_price }}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="content">
+		{% block content %}{% endblock %}
+		</div>
+		
+		{% block footer %}
+		<div class="footer">
+			<div class="footer-container">
+				<div class="footer-left">
+					<p class="contacts-text">8 (342) 236-09-60<br>
+					ул. Ленина, 60, ТРЦ “Колизей-Atrium” , 1 этаж
+					</p>
+				</div>
+				<div class="footer-center">
+					<p class="label-text"><span class="flora-label">Flora</span> - эмоции<br>
+					с доставкой на дом
+					</p>
+				</div>
+				<div class="footer-right">
+				</div>
+			</div>	
+		</div>
+		{% endblock %}
+	</div>
+	<script src="{% static 'jquery.js' %}"></script>
+	<script src="{% static 'to-cart.js' %}"></script>
+	<script src="{% static 'main.js' %}"></script>
+	<script id="paste_html">
+	<tr>
+		<td>{name}</td>
+		<td>{price}</td>
+		<form method="POST" id="remove-form">
+		{% csrf_token %}
+		<td style="border-left: 1px solid gray;"><button class="remove-button" value="{id}">X</button></td>
+		</form>
+	</tr>
+	</script>
+	</body>
+</html>

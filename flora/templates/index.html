@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load flora_extras %}
+<link rel="stylesheet" href="{% static '/slider-style.css'%}" type="text/css">
+<link rel="stylesheet" href="{% static '/index_style.css'%}" type="text/css">
+
+
+	<div class="container" id="cont">
+		
+		<input type="radio" id="i1" name="images" checked/>
+		<input type="radio" id="i2" name="images" />
+		<input type="radio" id="i3" name="images" />
+			<div class="text-field">
+				<p>Никакие слова не смогут
+					выразить ваши чувства
+					лучше, чем букет цветов</p>
+			</div>		
+		<div class="slide_img" id="one">            
+				<img src="static/pictures/new-year-slide.jpg">
+					<label class="prev" for="i4"><span></span></label>
+					<label class="next" for="i2"><span></span></label>  
+			
+		</div>
+		
+		<div class="slide_img" id="two">
+			
+				<img src="static/pictures/slide_img1.jpg " >
+				
+					<label class="prev" for="i1"><span></span></label>
+					<label class="next" for="i3"><span></span></label>
+			
+		</div>
+				
+		<div class="slide_img" id="three">
+				<img src="static/pictures/slide_img3.jpg">  
+				
+					<label class="prev" for="i2"><span></span></label>
+					<label class="next" for="i1"><span></span></label>
+		</div>
+		
+		<div id="nav_slide">
+			<label for="i1" class="dots" id="dot1"></label>
+			<label for="i2" class="dots" id="dot2"></label>
+			<label for="i3" class="dots" id="dot3"></label>
+		</div>
+			
+	</div>
+	
+	
+	<div class="categories">
+		<h2>Категории</h2>
+		<div class="categories-container">
+			<div class="categories-items">
+				<a class="empty-link" href="catalog/love">
+					<img src="/static/icons/heart.png"></img>
+				</a>
+				<span class="inscriptions-items">Любовь</span>
+			</div>
+			<div class="categories-items">
+				<a class="empty-link" href="catalog/birthday">
+					<img src="/static/icons/cake.png"></img>
+				</a>
+				<span class="inscriptions-items">День рождения</span>
+			</div>
+			<div class="categories-items">
+				<a class="empty-link" href="catalog/mono">
+					<img src="/static/icons/bouqet.png"></img>
+				</a>
+				<span class="inscriptions-items">Монобукеты</span>
+			</div>
+			<div class="categories-items">
+				<a class="empty-link" href="catalog/men">
+					<img src="/static/icons/man.png"></img>
+				</a>
+				<span class="inscriptions-items">Мужчинам</span>
+			</div>
+			<div class="categories-items">
+				<a class="empty-link" href="catalog/hat-boxes">
+					<img src="/static/icons/box.png"></img>
+				</a>
+				<span class="inscriptions-items">Шляпные Коробки</span>
+			</div>
+			<div class="categories-items">
+				<a class="empty-link" href="catalog/modern">
+					<img src="/static/icons/modern.png"></img>
+				</a>
+				<span class="inscriptions-items">Современное</span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="slides">
+		<h2>Новинки и спецпредложения</h2>
+		<div class="slides-container">
+		{% for g in last_goods %}
+			<div class="slide">
+				<div class="image-part">
+					<img src="{% static g.goods_photo|str %}">
+				</div>
+				<div class="inscription-part">
+					<h3 class="goods-name"> {{ g.goods_name }} </h3>
+					<div class="border-block"><span class="goods-price"> {{ g.price }} &#8381;</span></div>
+					<a class="link-to-goods" href="">Подробнее</a>
+				</div>
+			</div>
+		{% endfor %}	
+		</div>
+	</div>
+	<div class="rounds">
+		<div class="rounds-header">
+			<h2>Как мы это создаем</h2>
+		</div>
+		<div class="circles-container">
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+		</div>
+		<div class="numbers-container">
+			<p class="circle-number">1</p>
+			<p class="circle-number">2</p>
+			<p class="circle-number">3</p>
+		</div>
+		<div class="descriptions-container">
+			<div class="text-container">
+				<div class="circle-description">Наши флористы подбирают для вас<br> 
+										потрясающие композиции из самых свежих цветов,<br>
+										бережно составляют их в единый букет и упаковывают<br>
+										его, в соответствии с вашими пожеланиями и<br>
+										современнными тенденциями флористики.
+				</div>
+			</div>
+			<div class="text-container">
+				<div class="circle-description">Составленный букет мы аккуратно доставляем<br>
+											прямо к вашему дому, ведь мы осознаем<br>
+											ценность вашего времени и не хотим его отнимать.
+				</div>
+			</div>
+			<div class="text-container">
+				<div class="circle-description">Полученные цветы свежи и поэтому еще<br>
+											долго будут стоять, доставляя окружающим их<br> 
+											потрясающее  эстетическое удовольствие.
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="{% static '/slider.js' %}" type="text/javascript"></script>
+{% endblock %}
