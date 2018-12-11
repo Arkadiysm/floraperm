@@ -10,7 +10,6 @@ $(document).ready(function(){
       data: {id: id},
       success: function(res){
         if(res){
-		  console.log(res);
 		  $("#cart_price").html(+res.total_price);
 		  $("#cart-total-price").html(+res.total_price);
 		  $("#cart_len").html(res.goods_counts);
@@ -23,6 +22,7 @@ $(document).ready(function(){
 		  };
 		  paste_html = render(paste_html, replace_obj);
 		  $("#cart-table").append(paste_html);
+		  $(".checkout-cont").css("display","block");
 		  console.log("Product successfully added to your cart");
         }},
 		  error: function(xhr,errmsg,err) {

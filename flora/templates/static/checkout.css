@@ -1,0 +1,90 @@
+h2 {
+	font-weight: normal;
+}
+
+.content {
+	max-width: 1280px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.header {
+	max-width: 1280px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+.header h1 {
+	font-weight: normal;
+	font-size: 2.4vw;
+}
+
+.current-cart {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 50px;
+
+}
+
+.current-cart td {
+	white-space: nowrap;
+	font-size: 1.4vw;
+	width: 3.6em;
+	padding: 5px;
+}
+
+.empty-row {
+	height: 20px;
+}
+
+.last-row {
+	border-bottom: 1px solid black;
+}
+
+.delivery-form {
+	max-width: 1280px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delivery-form form {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.left-block {
+	float: left;
+}
+
+.right-block {
+	float: right;
+}
+
+.bottom-block {
+
+}
+
+.clearfix::before {
+	content: '';
+    display: block;
+    clear: both;
+    height: 20px;
+    visibility: hidden;
+}
+
+.clear-fix::after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0px;
+    visibility: hidden;
+}
+
+.in-block {
+	display: inline-block;
+}

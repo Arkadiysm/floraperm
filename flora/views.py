@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from flora.models import Goods
+from flora.models import Goods, Order, OrderGoods
 from flora.image_resize import resizing
 from floraperm.settings import BASE_DIR
 import os
 from cart.cart import Cart
 import json
+from .forms import DeliveryForm
 
 
 def index(request):
@@ -51,6 +52,27 @@ def catalog_categories(request, category):
         'header': main_header,
     }
     return render(request, 'catalog-categories.html', context)
+
+
+def checkout(request):
+
+    if request.method == 'POST':
+        form = DeliveryForm(request.POST)
+        if form.is_valid():
+            cart = Cart(request)
+            add_order(form, cart)
+            return index(request)
+
+    else:
+        form = DeliveryForm()
+        context = {
+            'form': form,
+            'title': 'Оформление заказа',
+            'categories': Goods.GOODS_TYPES,
+            'cart': Cart(request)
+        }
+
+    return render(request, 'checkout.html', context)
 
 
 def photo_checker():
@@ -101,3 +123,33 @@ def remove_goods(request):
             json.dumps(response_data),
             content_type="application/json"
         )
+
+
+def add_order(form, cart):
+    name = form.cleaned_data['name']
+    surname = avoid_key_error(form, 'surname')
+    phone_num = form.cleaned_data['phone_num']
+    address = form.cleaned_data['street'] + ' ' + \
+              form.cleaned_data['street_number'] + ', ' + avoid_key_error(form, 'flat_number')
+    comment = avoid_key_error(form, 'comment')
+
+    for item in cart:
+        g = Goods.objects.filter(goods_id=item['product_id'])[0]
+        og = OrderGoods(product=g, quantity=item['quantity'])
+        og.save()
+
+    order = Order(customer_name=name+' '+surname, phone_num=phone_num,
+                  address=address, total_sum=cart.get_total_price(), comment=comment )
+    order.save()
+    goods = OrderGoods.objects.order_by('id').reverse()[0:len(cart)]
+    [order.goods.add(i) for i in goods]
+
+    cart.clear()
+
+
+def avoid_key_error(form, st):
+    try:
+        item = form.cleaned_data[st]
+        return item
+    except KeyError:
+        return ''

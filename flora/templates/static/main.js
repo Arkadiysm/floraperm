@@ -24,6 +24,8 @@ $(document).on("click", ".remove-button", function(event){
   
 let obj = document.getElementsByClassName("cart-ico")[0];
 let svgDoc = obj.contentDocument;
+
+
 var svg = svgDoc.getElementById("svg10");  
   
   
@@ -35,6 +37,7 @@ $(document).on("mouseover", ".order", function(){
 $(document).on("mouseout", ".order", function(){
   svg.setAttribute("fill","black");
 });
+
 
 
 

@@ -300,3 +300,26 @@ a {
 	overflow: auto;
 }
 
+.checkout-link {
+	text-decoration: underline;
+	text-align: right;
+}
+
+.checkout-link:hover {
+	text-decoration: none;
+}
+
+.checkout-cont {
+	
+	display: flex;
+	padding-top: 10px;
+	justify-content: right;
+}
+
+.cart-last-row {
+	padding-left: 17px;
+}
+
+.cart-last-row {
+	padding-right: 17px;
+}

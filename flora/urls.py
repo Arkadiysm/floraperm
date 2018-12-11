@@ -9,6 +9,7 @@ urlpatterns = [
     path('catalog/<str:category>/', views.catalog_categories, name='catalog-categories'),
     path('add_goods/', views.add_goods, name='add_goods'),
     path('remove_goods/', views.remove_goods, name='remove_goods'),
+    path('checkout/', views.checkout, name='checkout')
 ]
 
 for i in Goods.GOODS_TYPES:

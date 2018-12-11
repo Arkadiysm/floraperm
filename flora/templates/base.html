@@ -53,11 +53,21 @@
 						</tr>
 						{% endfor %}
 						</table>
-						<table>
+						<table class="second-table">
 							<tr>
-								<td>Всего: </td><td id="cart-total-price">{{ cart.get_total_price }}</td>
+								<td class="cart-last-row">Всего: </td><td class="cart-last-row" id="cart-total-price">{{ cart.get_total_price }}</td>
 							</tr>
 						</table>
+						{% if cart|length > 0 %}
+						<div class="checkout-cont"><a href="{% url 'checkout' %}" class="checkout-link">Оформить заказ</a></div>
+						{% else %}
+						<style>
+							.checkout-cont {
+								display: none;
+							}
+						</style>
+						<div class="checkout-cont"><a href="checkout" class="checkout-link">Оформить заказ</a></div>
+						{% endif %}
 					</div>
 				</div>
 			</div>
